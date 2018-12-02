@@ -1,0 +1,199 @@
+XML Conversation
+----------------
+GET Request
+http://localhost:8080/springrest1/emp/ID/Id1
+
+Expected Result
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Status><errCode>002</errCode><errMsg>Employee with this id Id1 does not exist</errMsg><status>Failed</status></Status>
+
+POST Request
+------------
+http://localhost:8080/springrest1/emp/create
+
+Content-Type : application/xml
+Accept : application/xml
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<employee>
+    <act>
+        <actNo>11111</actNo>
+        <name>DD Mishra</name>
+    </act>
+    <adrs>
+        <countryName>India</countryName>
+        <streetName>Bangalore</streetName>
+    </adrs>
+    <id>Id1</id>
+    <name>Name-1</name>
+</employee>
+
+Expected Result
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Status><errCode></errCode><errMsg></errMsg><status>Success</status></Status>
+
+GET Request
+-----------
+http://localhost:8080/springrest1/emp/ID/Id1
+
+Accept : application/xml
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><employee><act><actNo>11111</actNo><name>DD Mishra</name></act><adrs><countryName>India</countryName><streetName>Bangalore</streetName></adrs><id>Id1</id><name>Name-1</name></employee>
+
+
+
+PUT Request
+------------
+http://localhost:8080/springrest1/emp/update
+
+Content-Type : application/xml
+Accept : application/xml
+
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<employee>
+    <act>
+        <actNo>11111</actNo>
+        <name>Deba Mishra</name>
+    </act>
+    <adrs>
+        <countryName>India</countryName>
+        <streetName>Bangalore</streetName>
+    </adrs>
+    <id>Id1</id>
+    <name>Deba</name>
+</employee>
+
+DELETE Request
+--------------
+http://localhost:8080/springrest1/emp/delete
+
+Content-Type : application/xml
+Accept : application/xml
+
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<employee>
+    <act>
+        <actNo>11111</actNo>
+        <name>Deba Mishra</name>
+    </act>
+    <adrs>
+        <countryName>India</countryName>
+        <streetName>Bangalore</streetName>
+    </adrs>
+    <id>Id1</id>
+    <name>Deba</name>
+</employee>
+
+GET Request
+http://localhost:8080/springrest1/emp/ID/Id1
+
+Accept : application/xml
+
+Expected Result
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Status><errCode>002</errCode><errMsg>Employee with this id Id1 does not exist</errMsg><status>Failed</status></Status>
+
+Accept : application/json
+Expected Result
+{"status":"Failed","errCode":"002","errMsg":"Employee with this id Id1 does not exist"}
+
+
+JSON Conversation
+------------------
+GET Request
+http://localhost:8080/springrest1/emp/ID/Id1
+
+Accept : application/json
+Expected Result
+{"status":"Failed","errCode":"002","errMsg":"Employee with this id Id1 does not exist"}
+
+
+POST Request
+-------------
+http://localhost:8080/springrest1/emp/create
+
+Content-Type : application/json
+Accept : application/json
+
+{
+  "Id" : "Id1",
+  "Name" : "Name-1",
+  "Adrs" : {
+    "StreetName" : "Bangalore",
+    "CountryName" : "India"
+  },
+  "Account" : {
+    "AccountName" : "DD Mishra",
+    "AccountNo" : "11111"
+  }
+}
+
+
+
+Expected Result
+---------------
+{"status":"Success","errCode":"","errMsg":""}
+
+
+PUT Request
+-------------
+http://localhost:8080/springrest1/emp/update
+
+Content-Type : application/json
+Accept : application/json
+
+{
+  "Id" : "Id1",
+  "Name" : "Debadatta Mishra",
+  "Adrs" : {
+    "StreetName" : "Odisha",
+    "CountryName" : "India"
+  },
+  "Account" : {
+    "AccountName" : "Debadatta Mishra",
+    "AccountNo" : "11111"
+  }
+}
+
+Expected Result
+---------------
+{"status":"Success","errCode":"","errMsg":""}
+
+
+GET Request
+------------
+http://localhost:8080/springrest1/emp/ID/Id1
+
+Accept : application/json
+
+Expected Result
+---------------
+
+{"id":"Id1","name":"Deba","adrs":{"streetName":"Bangalore","countryName":"India"},"act":{"name":"Deba Mishra","actNo":"11111"}}
+
+Delete Request
+--------------
+http://localhost:8080/springrest1/emp/delete
+
+Content-Type : application/json
+Accept : application/json
+
+{
+  "Id" : "Id1",
+  "Name" : "Debadatta Mishra",
+  "Adrs" : {
+    "StreetName" : "Odisha",
+    "CountryName" : "India"
+  },
+  "Account" : {
+    "AccountName" : "Debadatta Mishra",
+    "AccountNo" : "11111"
+  }
+}
+
+
+
+Expected Result
+---------------
+{"status":"Success","errCode":"","errMsg":""}

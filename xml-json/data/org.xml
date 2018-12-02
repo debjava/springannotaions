@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Org>
+    <Name>DDLAB Inc</Name>
+    <Id>Id-001</Id>
+    <Desc type="IT" unit="Banking">A virtual company</Desc>
+    <emps>
+        <Emp>
+            <Id>E-0</Id>
+            <Name>Ename-0</Name>
+            <Address Type="P">
+                <RoadNo>R-0</RoadNo>
+                <StreetNo>St-0</StreetNo>
+            </Address>
+        </Emp>
+        <Emp>
+            <Id>E-1</Id>
+            <Name>Ename-1</Name>
+            <Address Type="P">
+                <RoadNo>R-1</RoadNo>
+                <StreetNo>St-1</StreetNo>
+            </Address>
+        </Emp>
+    </emps>
+</Org>

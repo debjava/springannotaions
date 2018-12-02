@@ -1,0 +1,54 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+        
+    <bean id="customerService" class="com.ddlab.spring.aop.advice.CustomerService">
+		<property name="name" value="Yong Mook Kim" />
+		<property name="url" value="http://www.mkyong.com" />
+	</bean>
+ 
+ 	<!-- Before Advice -->
+	<bean id="beforeMethodAOPBean" 	class="com.ddlab.spring.aop.advice.BeforeMethodAOP" />
+	<bean id="beforecustomerServiceProxy"   class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="customerService" />
+		<property name="interceptorNames">
+			<list>
+				<value>beforeMethodAOPBean</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- After Advice -->
+	<bean id="afterMethodAOPBean" class="com.ddlab.spring.aop.advice.AfterMethodAOP" />
+	<bean id="aftercustomerServiceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="customerService" />
+		<property name="interceptorNames">
+			<list>
+				<value>afterMethodAOPBean</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- After throwing Advice -->
+	<bean id="afterThrowExceptionBean" class="com.ddlab.spring.aop.advice.AfterThrowingAOPException" />
+	<bean id="throwingcustomerServiceProxy"  class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="customerService" />
+		<property name="interceptorNames">
+			<list>
+				<value>afterThrowExceptionBean</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- Around Advice -->
+	<bean id="hijackAroundMethodBean" class="com.ddlab.spring.aop.advice.AroundMethodAOP" />
+	<bean id="aroundcustomerServiceProxy"   class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="customerService" />
+		<property name="interceptorNames">
+			<list>
+				<value>hijackAroundMethodBean</value>
+			</list>
+		</property>
+	</bean>
+</beans>

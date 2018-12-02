@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+  
+    <bean id="businessService" class="com.kruders.spring.aop.BusinessImpl" />
+    
+    <!-- Advice -->
+    <bean id="businessAdvice"   class="com.kruders.spring.aop.BusinessAdvice" />
+    <bean id="customerPointcut" class="org.springframework.aop.support.NameMatchMethodPointcut">
+        <property name="mappedName" value="doSomeThing" />
+    </bean>
+      
+    <bean id="customerAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+        <property name="pointcut" ref="customerPointcut" />
+        <property name="advice" ref="businessAdvice" />
+    </bean>
+      
+    <bean id="businessServiceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="businessService" />
+        <property name="interceptorNames">
+            <list>
+                <value>customerAdvisor</value>
+            </list>
+        </property>
+    </bean>
+</beans>

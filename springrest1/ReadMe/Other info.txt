@@ -1,0 +1,34 @@
+Other useful links
+
+http://theopentutorials.com/tutorials/java-ee/jax-rs/apache-cxf-restful-web-service-example/
+http://info.appdirect.com/blog/how-to-easily-build-rest-web-services-with-java-spring-and-apache-cxf
+http://sushantworld.wordpress.com/2011/01/23/apache-cxf-restful-web-service/
+http://www.javacodegeeks.com/2013/07/developing-restful-services-using-apache-cxf.html
+http://java.dzone.com/articles/rest-web-service-using-cxf
+http://pic.dhe.ibm.com/infocenter/tivihelp/v10r1/index.jsp?topic=%2Fcom.ibm.taddm.doc_7.2%2FSDKDevGuide%2Ft_cmdbsdk_restapi_java.html
+http://www.javacodegeeks.com/2012/09/simple-rest-client-in-java.html
+http://www.mkyong.com/webservices/jax-rs/restfull-java-client-with-java-net-url/
+http://hc.apache.org/httpcomponents-client-ga/tutorial/html/index.html
+
+
+
+RESTFull Webservice using Apache Axis2
+
+http://wso2.com/library/3726
+
+http://en.wikipedia.org/wiki/JAX-RS
+
+JAX-RS provides some annotations to aid in mapping a resource class (a POJO) as a web resource. The annotations include:
+@Path specifies the relative path for a resource class or method.
+@GET, @PUT, @POST, @DELETE and @HEAD specify the HTTP request type of a resource.
+@Produces specifies the response Internet media types (used for content negotiation).
+@Consumes specifies the accepted request Internet media types.
+In addition, it provides further annotations to method parameters to pull information out of the request. All the @*Param annotations take a key of some form which is used to look up the value required.
+@PathParam binds the method parameter to a path segment.
+@QueryParam binds the method parameter to the value of an HTTP query parameter.
+@MatrixParam binds the method parameter to the value of an HTTP matrix parameter.
+@HeaderParam binds the method parameter to an HTTP header value.
+@CookieParam binds the method parameter to a cookie value.
+@FormParam binds the method parameter to a form value.
+@DefaultValue specifies a default value for the above bindings when the key is not found.
+@Context returns the entire context of the object.(for example @Context HttpServletRequest request)

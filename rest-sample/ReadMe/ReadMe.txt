@@ -1,0 +1,1 @@
+http://briansjavablog.blogspot.in/2012/08/rest-services-with-spring.html
